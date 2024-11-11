@@ -29,7 +29,7 @@ class Game:
         self.enemy_bullets = []
         self.enemies = []
 
-        self.enemy_spawn_delay = 1  # Start with 1 enemy
+        self.enemy_spawn_delay = 1
         self.clock = pygame.time.Clock()
 
     def create_walls(self):
@@ -100,7 +100,7 @@ class Game:
             if hit_wall or hit_player:
                 self.enemy_bullets.remove(bullet)
                 if hit_player:
-                    self.show_end_screen()  # Show end screen when the player dies
+                    self.show_end_screen()
                     return
             else:
                 bullet.draw(self.screen)
@@ -110,7 +110,7 @@ class Game:
         for enemy in self.enemies:
             enemy.move()
             if enemy.rect.colliderect(player_rect):
-                self.show_end_screen()  # Show end screen when the player dies
+                self.show_end_screen()
                 return
             
             for wall in self.walls:
@@ -192,7 +192,7 @@ class Game:
                     sys.exit()
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     if restart_rect.collidepoint(event.pos):
-                        self.reset_game()  # Reset the game state for restart
+                        self.reset_game()
                         return
                     elif quit_rect.collidepoint(event.pos):
                         pygame.quit()
@@ -204,7 +204,7 @@ class Game:
         self.bullets = []
         self.enemy_bullets = []
         self.enemies = []
-        self.enemy_spawn_delay = 1  # Reset enemy count to initial value
+        self.enemy_spawn_delay = 1 
         self.start_time = time.time()
 
 
